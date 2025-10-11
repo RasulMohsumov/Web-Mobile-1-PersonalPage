@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="author" content="Rəsul">
-        <title>Personal Website</title>
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Rəsul">
+    <title>Personal Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="education.html" class="nav-link">Education</a>
+    <a href="schedule.html" class="nav-link">Weekly Schedule</a>
+    <a href="gallery.html" class="nav-link">Gallery</a>
+    <a href="contactme.html" class="nav-link">Contact Me</a>
+</nav>
+
+<nav>
     <a href="contactme.html">Contact Me</a>
     <a href="schedule.html">Weekly Schedule</a>
     <a href="education.html">Education</a>
+</nav>
+
+<div class="home-container">
+
+    <div class="home-text">
         <h1>Hello everyone. Welcome to my personal web page! My name is Rasul Mohsumov.</h1>
-        <a href="https://www.linkedin.com/in/rasul-mohsumov-994462273/" target="_blank">
-            <img src="./images/myPhoto.jpeg" alt="Rasul Mohsumov" height="300" width="300">
-        </a>
-        <br><br><br>
+
         <h4>List of courses I have taken for Fall 2025:</h4>
         <ul>
             <li>Database Systems</li>
@@ -22,18 +34,38 @@
             <li>Probability & Statistics</li>
             <li>Intro to Software Engineering</li>
         </ul>
+
         <h3>My hobby: Listening to music</h3>
-        <a href="https://www.youtube.com/watch?v=bYCTqd7c0G8&list=RDbYCTqd7c0G8&start_radio=1">CLICK HERE IF YOU WANT TO HEAR THE BEST MUSIC OF ALL TIME</a>
-        <br><br>
-        <img src="images/maxres.jpg" alt="Come on guys" height="200">
-        <h3>Work Experience as Backend Developer:</h3>
-        <p>I gained extensive hands-on experience in backend development for a large-scale mobile investment application,<br>
-            working with the Spring Framework and Spring Data JPA to build transactional operations and ensure data consistency <br>
-            across PostgreSQL. I contributed to a microservice-based architecture, using Apache Kafka for event-driven communication<br>
-            and GitLab CI/CD pipelines for continuous delivery. Developed and optimized RESTful APIs, integrated external services,<br>
-            and implemented Redis caching to improve performance.While practicing Agile (Scrum) in a collaborative team, I applied <br>
-            code principles, wrote unit tests to maintain quality, and also gained exposure to TypeScript for backend-for-frontend<br>
-            (BFF) development, which strengthened my understanding of scalable system design and problem-solving in production <br>
-            environments</p>
-    </body>
+        <a href="https://www.youtube.com/watch?v=bYCTqd7c0G8&list=RDbYCTqd7c0G8&start_radio=1" target="_blank">
+            CLICK HERE IF YOU WANT TO HEAR THE BEST MUSIC OF ALL TIME
+        </a>
+    </div>
+
+    <div class="home-photo">
+        <a href="https://www.linkedin.com/in/rasul-mohsumov-994462273/" target="_blank">
+            <img src="./images/myPhoto.jpeg" alt="Rasul Mohsumov">
+        </a>
+    </div>
+</div>
+
+<div style="clear: both;"></div>
+
+<hr>
+
+<div class="work-experience">
+    <img src="images/maxres.jpg" alt="Come on guys" height="200">
+    <h3>Work Experience as Backend Developer:</h3>
+    <p>
+        I gained extensive hands-on experience in backend development for a large-scale mobile investment application,
+        working with the Spring Framework and Spring Data JPA to build transactional operations and ensure data consistency
+        across PostgreSQL. I contributed to a microservice-based architecture, using Apache Kafka for event-driven communication
+        and GitLab CI/CD pipelines for continuous delivery. Developed and optimized RESTful APIs, integrated external services,
+        and implemented Redis caching to improve performance. While practicing Agile (Scrum) in a collaborative team, I applied
+        code principles, wrote unit tests to maintain quality, and also gained exposure to TypeScript for backend-for-frontend
+        (BFF) development, which strengthened my understanding of scalable system design and problem-solving in production
+        environments.
+    </p>
+</div>
+
+</body>
 </html>
