@@ -1,0 +1,97 @@
+:root {
+    --font-family: 'Roboto Mono', monospace;
+}
+
+* {
+    /*border: 1px solid green;*/
+}
+
+.heading{
+    color: #F4F4F4;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.text, ul,h6,h5,h4,h3,h2,h1,p,a,label,button,input {
+    color: #F4F4F4;
+    font-family: 'Roboto Mono', monospace;
+}
+
+#form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+#form-container form {
+    border: 10px solid #254675;
+    border-radius: 5px;
+
+}
+
+.submit {
+    background-color: #005bb5;
+}
+
+#contact-word {
+    color: #005bb5;
+}
+
+body {
+    color: #F4F4F4;
+    background-color: rgb(17 24 39);
+    margin: 0;
+}
+
+nav {
+    background-color: rgb(17 24 39);
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    gap: 30px;
+    vertical-align: top;
+    padding-top
+    :30px;
+}
+
+nav > a {
+    font-size: 23px;
+}
+
+
+#myImage {
+    display: inline-block;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+#myImage:hover {
+    width: 330px;
+    height: 330px;
+}
+
+#linkedinLink {
+    margin: 100px 100px 100px 100px;
+    display: inline-block;
+    line-height: 0;
+    horiz-align: left;
+    border-radius: 50%;
+}
+
+#main-heading {
+    text-align: left;
+    display: inline-block;
+    width: 30%;
+    margin: 100px 100px 100px 400px;
+    vertical-align: top;
+
+    box-sizing: border-box;
+}
+
+#introduction {
+    height: 500px;
+    box-sizing: border-box;
+    background-image: url("./images/background.jpg");
+    background-size: cover;
+    background-position: center;    /* keeps it centered */
+    background-repeat: no-repeat;   /* prevents tiling */
+}

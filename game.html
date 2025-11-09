@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        .scoreboard {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            margin: 20px 0;
+        }
+
+        .player {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 32px;
+            padding: 20px 40px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            min-width: 180px;
+            text-align: center;
+        }
+
+        .controls {
+            margin-top: 20px;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 10px;
+            border: none;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .result {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Rock, Paper, Scissors!</h1>
+<div class="scoreboard" id="scoreboard">Score: You 0 - 0 Computer</div>
+
+<button id="startRound">Start 1st Round</button>
+
+<div class="container">
+    <div id="userMove" class="player">You: ?</div>
+    <div id="computerMove" class="player">Computer: ?</div>
+</div>
+
+<div class="controls" id="controls" style="display:none;">
+    <button data-move="Rock">✊ Rock</button>
+    <button data-move="Paper">✋ Paper</button>
+    <button data-move="Scissors">✌️ Scissors</button>
+</div>
+
+<div class="result" id="result"></div>
+
+<script>
+    const moves = ['Rock', 'Paper', 'Scissors'];
+    let round = 1;
+    let userScore = 0;
+    let computerScore = 0;
+
+    const startBtn = document.getElementById('startRound');
+    const controls = document.getElementById('controls');
+    const userDiv = document.getElementById('userMove');
+    const computerDiv = document.getElementById('computerMove');
+    const resultDiv = document.getElementById('result');
+    const scoreboard = document.getElementById('scoreboard');
+
+    function getRandomMove() {
+        return moves[Math.floor(Math.random() * moves.length)];
+    }
+
+    function getWinner(user, comp) {
+        if (user === comp) return 'draw';
+        if (
+            (user === 'Rock' && comp === 'Scissors') ||
+            (user === 'Paper' && comp === 'Rock') ||
+            (user === 'Scissors' && comp === 'Paper')
+        ) return 'user';
+        return 'computer';
+    }
+
+    function updateScoreboard() {
+        scoreboard.textContent = `Score: You ${userScore} - ${computerScore} Computer`;
+    }
+
+    startBtn.addEventListener('click', () => {
+        resultDiv.textContent = '';
+        userDiv.textContent = 'You: ?';
+        computerDiv.textContent = 'Computer: ?';
+        controls.style.display = 'block';
+        startBtn.disabled = true;
+        startBtn.textContent = `Start ${round}${round === 1 ? 'st' : round === 2 ? 'nd' : round === 3 ? 'rd' : 'th'} Round`;
+    });
+
+    controls.addEventListener('click', (e) => {
+        if (!e.target.dataset.move) return;
+
+        const userMove = e.target.dataset.move;
+        const computerMove = getRandomMove();
+
+        userDiv.textContent = `You: ${userMove}`;
+        computerDiv.textContent = `Computer: ${computerMove}`;
+
+        const winner = getWinner(userMove, computerMove);
+
+        if (winner === 'user') {
+            resultDiv.textContent = '🎉 You Win!';
+            userDiv.textContent += ' 😊';
+            userScore++;
+        } else if (winner === 'computer') {
+            resultDiv.textContent = '💻 Computer Wins!';
+            computerDiv.textContent += ' 😊';
+            computerScore++;
+        } else {
+            resultDiv.textContent = '🤝 It’s a Draw!';
+        }
+
+        updateScoreboard();
+        round++;
+        startBtn.disabled = false;
+        startBtn.textContent = `Start ${round}${round === 1 ? 'st' : round === 2 ? 'nd' : round === 3 ? 'rd' : 'th'} Round`;
+        controls.style.display = 'none';
+    });
+</script>
+</body>
+</html>
