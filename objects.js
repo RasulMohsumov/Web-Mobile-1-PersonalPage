@@ -1,58 +1,12 @@
-var increment = document.getElementById("increase");
-var result = document.getElementById("counter");
-var reset = document.getElementById("reset");
-var decrement = document.getElementById("decrease");
-
-
-increment.addEventListener("click", function() {
-    result.textContent ++;
-})
-
-reset.addEventListener("click", function() {
-    result.textContent = 0;
-})
-
-decrement.addEventListener("click", function() {
-    if (result.textContent >=1) {
-        result.textContent --;
-    }
-})
-var go = document.getElementById("start-round");
-
-var div1 = document.getElementById("left-user");
-var div2 = document.getElementById("right-user");
-
-const images = ["paper.png","scissor.jpg","stone.jpg"];
-
-go.addEventListener("click", function() {
-    const image1 = document.createElement("img");
-    const image2 = document.createElement("img");
-    const index1 = Math.floor(Math.random() * images.length);
-    const index2 = Math.floor(Math.random() * images.length);
-    image1.alt = images[index1];
-    image2.alt = images[index2];
-    image1.src = `./game/${images[index1]}`;
-    image2.src = `./game/${images[index2]}`;
-    image1.width =250;
-    image2.width =250;
-
-    div1.append(image1);
-    div2.append(image2);
-})
-
 class Person {
-    #firstName;
-    #lastName;
-    #dateOfBirth;
-
     constructor(firstName, lastName,dateOfBirth) {
-        this.#firstName = firstName;
-        this.#lastName = lastName;
-        this.#dateOfBirth = dateOfBirth;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
     }
 
     fullName() {
-        return this.#firstName + " " + this.#lastName;
+        return this.firstName + " " + this.lastName;
     }
 
     age() {
@@ -60,8 +14,8 @@ class Person {
         return currentYear - this.dateOfBirth;
     }
 
-    static toString() {
-        return `salaa is salaa years old`;
+    toString() {
+        return `${this.fullName()} is ${this.age()} years old`;
     }
 
 }
@@ -182,36 +136,16 @@ rawBooks.forEach(book => {
 })
 
 
-const person = new Person("sala", "sadas", 1977);
+var person = new Person();
 
-console.log(person);
 console.log(person.toString());
-console.log(Person.toString())
 
 // console.log(books);
 // console.log(rawBooks);
 
 console.log("Please enter based on which field you want to sort the BOOKS...");
 
-const input = prompt("Please enter field:");
+const input = prompt("Please enter your name:");
 const words = input.split(' ');
+
 console.log(words);
-
-const field = words[0];
-
-if (words[1]==='ASC') {
-    books.sort((a, b) => a[field].localeCompare(b[field]));
-}
-else {
-    books.sort((a, b) => b[field].localeCompare(a[field]));
-
-}
-
-console.log(books);
-
-console.log(person.fullName())
-console.log(person.firstName);
-
-books.filter()
-
-
